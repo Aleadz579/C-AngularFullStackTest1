@@ -29,7 +29,9 @@ using (var scope = app.Services.CreateScope())
     var dbContext =
         scope.ServiceProvider.GetRequiredService<AppDbContext>();
 
-    Console.WriteLine("AppDbContext erfolgreich aus DI geladen.");
+    var companyCount = dbContext.Companies.Count();
+
+    Console.WriteLine($"Companies in database: {companyCount}");
 }
 
 // Configure the HTTP request pipeline.
