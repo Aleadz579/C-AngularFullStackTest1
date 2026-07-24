@@ -1,2 +1,5 @@
-<app-firma-karte>Hallo</app-firma-karte>
-hallo
+<p>Companies count: {{ companies().length }}</p>
+
+@for (company of companies(); track company.id) {
+  <p>{{ company.name }}</p>
+}

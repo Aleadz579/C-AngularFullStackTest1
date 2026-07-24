@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, inject, Input } from '@angular/core';
 
 @Component({
   selector: 'app-firma-karte',
@@ -6,4 +7,6 @@ import { Component } from '@angular/core';
   templateUrl: './firma-karte.html',
   styleUrl: './firma-karte.scss',
 })
-export class FirmaKarte {}
+export class FirmaKarte {
+  @Input() company: any;
+}
