@@ -1,1 +1,15 @@
-<p>{{ company?.name }}</p>
+<article class="firma">
+  <div class="firma__main">
+    <h2 class="firma__name">{{ company?.name }}</h2>
+
+    @if (company?.website) {
+      <a class="firma__website" [href]="company.website" target="_blank" rel="noreferrer">
+        {{ company.website }}
+      </a>
+    }
+  </div>
+
+  <span class="firma__status" [class.firma__status--contacted]="company?.contacted">
+    {{ company?.contacted ? 'Kontaktiert' : 'Offen' }}
+  </span>
+</article>

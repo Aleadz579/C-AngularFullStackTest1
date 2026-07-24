@@ -1,5 +1,29 @@
-<p>Companies count: {{ companies().length }}</p>
-
-@for (company of companies(); track company.id) {
-  <p>{{ company.name }}</p>
-}
+<div class="top-bar">
+  <div class="add-button">
+    <button>Firma Hinzufügen</button>
+  </div>
+  <div class="search-bar">
+    <input type="text" placeholder="Firmen suchen..." />
+  </div>
+  <div class="dark-mode">
+      <button (click)="toggleDarkMode()">
+        {{ darkMode() ? 'Light Mode' : 'Dark Mode' }}
+      </button>
+  </div>
+</div>
+<div class="app" [class.dark]="darkMode()">
+  <div class="done-list">
+    @for (company of companies(); track company.id) {
+      @if (company.contacted) {
+        <app-firma-karte [company]="company"></app-firma-karte>
+      }
+    }
+  </div>
+  <div class="list">
+    @for (company of companies(); track company.id) {
+      @if (!company.contacted) {
+        <app-firma-karte [company]="company"></app-firma-karte>
+      }
+    }
+  </div>
+</div>

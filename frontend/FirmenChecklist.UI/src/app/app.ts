@@ -29,4 +29,10 @@ export class App implements OnInit {
       }
     });
   }
+
+darkMode = signal(false);
+
+toggleDarkMode() {
+  this.darkMode.set(!this.darkMode());
+}
 }
