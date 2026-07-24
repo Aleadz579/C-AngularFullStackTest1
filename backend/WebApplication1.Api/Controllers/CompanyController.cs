@@ -14,5 +14,12 @@ namespace WebApplication1.Api.Controllers
         {
             return database.Companies.Any() ? Ok(database.Companies.ToList()) : NotFound();
         }
+
+        [HttpGet("{id}")]
+        public IActionResult getCompany(int id, AppDbContext database)
+        {
+            var company = database.Companies.Find(id);
+            return company != null ? Ok(company) : NotFound();
+        }
     }
 }
